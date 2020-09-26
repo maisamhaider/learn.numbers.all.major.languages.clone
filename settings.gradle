@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "learn.numbers.all.major.languages.clone"

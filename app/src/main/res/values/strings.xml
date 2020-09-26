@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">LearnNumbersAllMajorLanguagesClone</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //original ids
+    <string name="app_id">ca-app-pub-6736019070743734~7242771094</string>
+    <!--    <string name="banner">ca-app-pub-6736019070743734/1990444419</string>-->
+    <!--    <string name="interstitial">ca-app-pub-6736019070743734/9677362743</string>-->
+
+    //test ids
+    <string name="banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="one_to_nine">1-9</string>
+    <string name="one_to_hundred">1-100</string>
+    <string name="eleven_to_nineteen">11-19</string>
+    <string name="ten_to_ninety">10-90</string>
+    <string name="special_numbers">Special numbers</string>
+    <string name="custom_numbers">Custom numbers</string>
+    <string name="learn_one_to_nine">Learn one to nine numbers</string>
+    <string name="learn_eleven_to_nineteen">Learn eleven to nineteen numbers</string>
+    <string name="learn_ten_to_ninety">Learn ten to ninety numbers</string>
+    <string name="learn_special_numbers">Learn special numbers</string>
+    <string name="learn_custom_numbers">Learn custom numbers</string>
+    <string name="learn_arabic_digits_1_2_100">Learn 1 to 100 Arabic digits.</string>
+    <string name="learn_persian_digits_1_2_100">Learn 1 to 100 Persian digits.</string>
+    <string name="learn_pakhtu_digits_1_2_100">Learn 1 to 100 Pakhtu digits.</string>
+    <string name="learn_urdu_digits_1_2_100">Learn 1 to 100 Urdu digits.</string>
+    <string name="one_num">1</string>
+    <string name="two_num">2</string>
+    <string name="three_num">3</string>
+    <string name="four_num">4</string>
+    <string name="five_num">5</string>
+    <string name="six_num">6</string>
+    <string name="seven_num">7</string>
+    <string name="eight_num">8</string>
+    <string name="nine_num">9</string>
+    <string name="zero_num">0</string>
+    <string name="hundred_n">100</string>
+    <string name="thousand_n">1000</string>
+    <string name="million_n">1000000</string>
+    <string name="billion_n">1000000000</string>
+    <string name="trillion_n">1000000000000</string>
+
+
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four">Four</string>
+    <string name="five">Five</string>
+    <string name="six">Six</string>
+    <string name="seven">Seven</string>
+    <string name="eight">Eight</string>
+    <string name="nine">Nine</string>
+    <string name="zero">zero</string>
+    <string name="hundred">hundred</string>
+    <string name="thousand">thousand</string>
+    <string name="million">million</string>
+    <string name="billion">billion</string>
+    <string name="trillion">trillion</string>
+    <string name="select_language">Select Language</string>
+    <string name="number">Number:</string>
+
+
+    <string name="info_about">In this application you will able to learn digit in different languages. This app helps you to learn numbers in right side writing direction languages(Arabic,Persian,Pakhtu and Urdu).</string>
+
+    <string name="permission_texts">This application requires no permissions to perform its actions. (Learn Numbers All Major Languages) helps user in Learning Digits in different languages with voice for each digits and numbers.We insure you that the user personal data or information is not collected by the company nor does the application host users data</string>
+    <string name="exit_text">Are you sure you want to\n exit?</string>
+    <string name="thanks_and_feedback">Thanks for using our app for further suggestion to add language please give us your feedback send us email at(aquatrixtechnologies.inc@gmail.com).</string>
+
+</resources>
