@@ -131,7 +131,6 @@
                         android:visibility="gone" />
                 </com.google.android.material.card.MaterialCardView>
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
