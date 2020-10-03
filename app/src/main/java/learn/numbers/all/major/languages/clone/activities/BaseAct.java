@@ -195,7 +195,7 @@ public class BaseAct extends AppCompatActivity {
 
     public void initConverters() {
 
-        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY)) {
+        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false)) {
             case MyAnno.Afrikaan:
                 converter = new AFRIKAANNumConverter();
                 break;
@@ -266,7 +266,7 @@ public class BaseAct extends AppCompatActivity {
     }
 
     public void callNumber(final String numString) {
-        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY)) {
+        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false)) {
 
             case MyAnno.French:
                 tts = new TextToSpeech(BaseAct.this,

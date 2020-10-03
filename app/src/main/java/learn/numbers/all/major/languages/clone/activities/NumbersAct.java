@@ -39,7 +39,7 @@ public class NumbersAct extends BaseAct implements View.OnClickListener {
         TextView num_tv9 = findViewById(R.id.num_tv9);
         TextView thisToThat_tv = findViewById(R.id.t_To_t_tv);
         TextView numSLang_tv = findViewById(R.id.sLang_tv);
-        String sLang = new Pref(this).getStringData(MyAnno.S_LANGUAGE_KEY);
+        String sLang = new Pref(this).getStringData(MyAnno.S_LANGUAGE_KEY,false);
         numSLang_tv.setText(sLang);
         ConstraintLayout clOne = findViewById(R.id.clOne);
         ConstraintLayout clTwo = findViewById(R.id.clTwo);

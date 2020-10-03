@@ -3,8 +3,7 @@ package learn.numbers.all.major.languages.clone.adapters;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,23 +70,23 @@ public class TranslatorLanguageItemAdapter extends
 
         holder.languageName_tv.setText(language);
         if (isTarget) {
-            if (pref.getStringData(MyAnno.TARGET_LANGUAGE).matches(langCode)) {
+            if (pref.getStringData(MyAnno.TARGET_LANGUAGE,true).matches(langCode)) {
                 holder.isDOwnOrSelect_iv.setVisibility(View.VISIBLE);
 
-            } else {
+             } else {
                 holder.isDOwnOrSelect_iv.setVisibility(View.GONE);
 
             }
-
         } else {
-            if (pref.getStringData(MyAnno.USER_LANGUAGE).matches(langCode)) {
+            if (pref.getStringData(MyAnno.USER_LANGUAGE,true).matches(langCode)) {
                 holder.isDOwnOrSelect_iv.setVisibility(View.VISIBLE);
+                holder.languageNameItem_cl.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
 
             } else {
-                holder.isDOwnOrSelect_iv.setVisibility(View.GONE);
+                 holder.isDOwnOrSelect_iv.setVisibility(View.GONE);
+                holder.languageNameItem_cl.setBackgroundColor(Color.WHITE);
 
-            }
-        }
+            } }
         holder.languageNameItem_cl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,7 +101,6 @@ public class TranslatorLanguageItemAdapter extends
                     }
                     cPos1 = position;
                     isTargetLanguage.language(true);
-                    notifyDataSetChanged();
                 } else {
                     pref.setData(langCode, MyAnno.USER_LANGUAGE);
                     if (cPos2 == position) {
@@ -113,8 +111,8 @@ public class TranslatorLanguageItemAdapter extends
                     }
                     cPos2 = position;
                     isTargetLanguage.language(false);
-                    notifyDataSetChanged();
                 }
+                notifyDataSetChanged();
             }
         });
 

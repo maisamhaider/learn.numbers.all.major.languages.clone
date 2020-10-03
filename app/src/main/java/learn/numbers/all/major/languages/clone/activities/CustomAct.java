@@ -29,7 +29,7 @@ public class CustomAct extends BaseAct {
         final ImageView custom_iv = findViewById(R.id.custom_num_speak_iv);
         TextView convert_tv = findViewById(R.id.convertNumber_tv);
 
-        String sLanguage = preferences.getStringData(MyAnno.S_LANGUAGE_KEY);
+        String sLanguage = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
         customSLang_mtv.setText(sLanguage);
 
         convert_tv.setOnClickListener(new View.OnClickListener() {

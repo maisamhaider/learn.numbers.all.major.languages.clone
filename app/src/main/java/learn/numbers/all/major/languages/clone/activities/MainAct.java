@@ -16,7 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import learn.numbers.all.major.languages.clone.R;
 import learn.numbers.all.major.languages.clone.fragments.AboutFragment;
-import learn.numbers.all.major.languages.clone.fragments.CountingFragment;
 import learn.numbers.all.major.languages.clone.fragments.HomeFragment;
 import learn.numbers.all.major.languages.clone.fragments.TranslatorFragment;
 
@@ -38,9 +37,6 @@ public class MainAct extends BaseAct {
                         break;
                     case R.id.translator_item:
                         loadFragment(TranslatorFragment.newInstance());
-                        break;
-                    case R.id.counting_item:
-                        loadFragment(CountingFragment.newInstance());
                         break;
                     case R.id.about_item:
                         sNFragmentAds(AboutFragment.newInstance()

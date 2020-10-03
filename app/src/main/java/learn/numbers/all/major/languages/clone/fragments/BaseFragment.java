@@ -132,7 +132,7 @@ public class BaseFragment extends Fragment {
 
     @SuppressLint("SetTextI18n")
     public void sNameOfLang(TextView textView) {
-        switch (myPreferences.getStringData(MyAnno.S_LANGUAGE_KEY)) {
+        switch (myPreferences.getStringData(MyAnno.S_LANGUAGE_KEY,false)) {
             case MyAnno.Afrikaan:
                 textView.setText(MyAnno.Afrikaan + "  ");
                 break;

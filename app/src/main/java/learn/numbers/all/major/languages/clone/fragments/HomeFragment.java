@@ -13,14 +13,16 @@ import com.google.android.gms.ads.AdView;
 
 import learn.numbers.all.major.languages.clone.R;
 import learn.numbers.all.major.languages.clone.activities.CustomAct;
-import learn.numbers.all.major.languages.clone.activities.NumbersAct;
 import learn.numbers.all.major.languages.clone.activities.ExtraNumbersAct;
+import learn.numbers.all.major.languages.clone.activities.NumbersAct;
+import learn.numbers.all.major.languages.clone.activities.OtherLangAct;
 import learn.numbers.all.major.languages.clone.annotations.MyAnno;
 import learn.numbers.all.major.languages.clone.interfaces.TextChangedInterface;
 import learn.numbers.all.major.languages.clone.preferences.Pref;
+import learn.numbers.all.major.languages.clone.utils.MyUtil;
 
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements View.OnLongClickListener {
 
     private Pref preferences;
     TextView sSelected_language_tv;
@@ -106,8 +108,49 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+        view.findViewById(R.id.one_to_100_arabic_cl).setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newActivityAds(new OtherLangAct(), MyAnno.Extra_LANGUAGE_KEY,
+                        MyAnno.Arabic);
+            }
+        }); view.findViewById(R.id.one_to_100_persian_cl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newActivityAds(new OtherLangAct(),MyAnno.Extra_LANGUAGE_KEY,
+                        MyAnno.Persian);
+            }
+        }); view.findViewById(R.id.one_to_100_pakhtu_cl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newActivityAds(new OtherLangAct(),MyAnno.Extra_LANGUAGE_KEY,
+                        MyAnno.Pakhtu);
+            }
+        }); view.findViewById(R.id.one_to_100_urdu_cl).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newActivityAds(new OtherLangAct(),MyAnno.Extra_LANGUAGE_KEY,
+                        MyAnno.Urdu);}});
+
         return view;
     }
 
 
+    @Override
+    public boolean onLongClick(View v) {
+        MyUtil util = new MyUtil();
+        switch (v.getId())
+        {
+            case R.id.one_to_nine_cl:
+                if (v.isPressed())
+                {
+//                    util.showView("");
+                }else
+                {
+
+                }
+                break;
+        }
+        return false;
+    }
 }

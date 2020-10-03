@@ -34,7 +34,7 @@ public class ExtraNumbersAct extends BaseAct implements View.OnClickListener {
         TextView billionTarget_tv = findViewById(R.id.billion_tv);
         TextView trillionTarget_tv = findViewById(R.id.trillion_tv);
         TextView sNumSLang_tv = findViewById(R.id.sNumSLang_tv);
-        String sLang = new Pref(this).getStringData(MyAnno.S_LANGUAGE_KEY);
+        String sLang = new Pref(this).getStringData(MyAnno.S_LANGUAGE_KEY,false);
         sNumSLang_tv.setText(sLang);
         setNumWordInTvFun(targetWordNum_tv0);
         setNumWordInTvFun(targetWordNum_tv100);

@@ -23,8 +23,6 @@ public class AboutFragment extends BaseFragment{
 
     public static AboutFragment newInstance() {
 
-
-
         return new AboutFragment();
     }
 

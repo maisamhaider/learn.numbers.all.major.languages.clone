@@ -36,7 +36,7 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
         this.context = context;
         this.languagesAL = languagesAL;
         preferences = new Pref(context);
-        this.list.add(preferences.getStringData(MyAnno.S_LANGUAGE_KEY));
+        this.list.add(preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false));
         interstitialAd = new InterstitialAd(context);
         interstitialAd.setAdUnitId(context.getResources().getString(R.string.interstitial));
         reqNewInterstitial();
@@ -68,10 +68,10 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
                     else
                         {
                             final String name = languagesAL.get(position);
-                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY);
+                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
                             list.remove(lastLang);
                             preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
-                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY);
+                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
                             list.add(newLang);
 //                imageVisibility(holder.sLanguageItem_iv, newLang);
                             if (selected_position == position) {
@@ -89,10 +89,10 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
                         public void onAdClosed() {
                             reqNewInterstitial();
                             final String name = languagesAL.get(position);
-                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY);
+                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
                             list.remove(lastLang);
                             preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
-                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY);
+                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
                             list.add(newLang);
 //                imageVisibility(holder.sLanguageItem_iv, newLang);
                             if (selected_position == position) {

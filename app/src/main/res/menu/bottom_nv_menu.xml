@@ -7,9 +7,6 @@
     <item android:id="@+id/translator_item"
         android:title="Translator"/>
 
-   <item android:id="@+id/counting_item"
-        android:title="Counting"/>
-
     <item android:id="@+id/about_item"
         android:title="About"/>
 </menu>

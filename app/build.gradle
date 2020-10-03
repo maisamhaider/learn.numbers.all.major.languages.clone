@@ -36,4 +36,8 @@ dependencies {
 
 //ads
     implementation 'com.google.android.gms:play-services-ads:19.4.0'
+
+    //fancyshowcase
+    implementation 'me.toptas.fancyshowcase:fancyshowcaseview:1.3.3'
+
 }
