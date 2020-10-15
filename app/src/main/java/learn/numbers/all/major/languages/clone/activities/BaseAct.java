@@ -43,8 +43,9 @@ public class BaseAct extends AppCompatActivity {
     private Pref preferences;
     public Language converter;
     private TextToSpeech tts;
-//    InterstitialAd interstitialAd;
+    //    InterstitialAd interstitialAd;
     private int counter = 0;
+    ProgressDialog showDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -239,6 +240,9 @@ public class BaseAct extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (showDialog != null) {
+            showDialog.dismiss();
+        }
         if (tts != null) {
             tts.stop();
             tts.shutdown();
@@ -259,25 +263,25 @@ public class BaseAct extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        }
+    }
 
     public void loadingDialog() {
         try {
-            final ProgressDialog showDialog = ProgressDialog.show(this,
+            showDialog = ProgressDialog.show(this,
                     getString(R.string.app_name), "Please wait a seconds",
                     true);
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    showDialog.dismiss();
+                    if (showDialog != null) {
+                        showDialog.dismiss();
+                    }
                 }
             }, 2000);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        }
-
-
+    }
 
 
 }

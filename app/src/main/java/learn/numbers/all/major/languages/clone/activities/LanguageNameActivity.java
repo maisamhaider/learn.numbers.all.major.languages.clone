@@ -1,6 +1,7 @@
 package learn.numbers.all.major.languages.clone.activities;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class LanguageNameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_name);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         intitAdapter(this, new TextChangedInterface() {
             @Override
             public boolean changed(String val) {

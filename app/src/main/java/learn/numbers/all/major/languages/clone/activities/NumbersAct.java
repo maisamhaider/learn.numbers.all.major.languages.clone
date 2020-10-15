@@ -3,7 +3,6 @@ package learn.numbers.all.major.languages.clone.activities;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -23,7 +22,6 @@ public class NumbersAct extends BaseAct implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        try {
 
 
         initConverters();
@@ -112,12 +110,7 @@ public class NumbersAct extends BaseAct implements View.OnClickListener {
         clEight.setOnClickListener(this);
         clNine.setOnClickListener(this);
         loadingDialog();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            Log.e("error_two",e.getMessage());
-        }
+
 
     }
 

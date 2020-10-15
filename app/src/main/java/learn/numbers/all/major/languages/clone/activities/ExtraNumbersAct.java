@@ -2,7 +2,6 @@ package learn.numbers.all.major.languages.clone.activities;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,7 +19,6 @@ public class ExtraNumbersAct extends BaseAct implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_special_numbers);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        try {
 
 
         initConverters();
@@ -54,11 +52,7 @@ public class ExtraNumbersAct extends BaseAct implements View.OnClickListener {
         million_cl.setOnClickListener(this);
         billion_cl.setOnClickListener(this);
         trillion_cl.setOnClickListener(this);
-        }
-        catch (Exception e)
-        {
-            Log.e("error_three",e.getMessage());
-        }
+
     }
     public void setNumWordInTvFun(TextView view) {
         switch (view.getId()) {
