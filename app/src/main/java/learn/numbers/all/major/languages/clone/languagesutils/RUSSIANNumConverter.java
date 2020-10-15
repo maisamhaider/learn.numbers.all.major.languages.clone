@@ -21,7 +21,7 @@ public class RUSSIANNumConverter implements Language {
 
     public final String[] numNames = {
             "",
-            " a-déen", " dva", " trée", " chee-tý-rye", " pyat", " six", " sem", " vó-seem",
+            " a-déen", " dva", " trée", " chee-tý-rye", " pyat", " shesth", " sem", " vó-seem",
             " dyé-veet", " dyé-seet", " a-dée-nat-sat", " dvee-nát-sat", " try-nát-sat",
             " chee-týr-nat-sat", " peet-nát-sat", " shees-nat-sat", " seem-ná-tsat",
             " va-seem-nát-sat", " dee-vet-nát-sat"

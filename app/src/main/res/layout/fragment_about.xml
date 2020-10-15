@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".fragments.AboutFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:textColor="@color/colorTextHeader"
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,16 +33,15 @@
 
 
     <ScrollView
-        android:background="@color/colorPrimary"
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_gravity="center"
             android:layout_height="0dp">
 
             <androidx.constraintlayout.widget.Guideline
@@ -49,34 +49,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.31" />
+                app:layout_constraintGuide_percent="0.22" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline16"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.69" />
+                app:layout_constraintGuide_percent="0.78" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/settingsShare_cl"
                 android:layout_width="0dp"
-                android:layout_marginTop="25dp"
                 android:layout_height="wrap_content"
-                 android:background="@drawable/main_button_with_ripple_bg"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/main_button_with_ripple_bg"
                 android:elevation="5dp"
-                 app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                app:layout_constraintEnd_toStartOf="@+id/guideline16"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
                 app:layout_constraintTop_toTopOf="parent">
 
 
                 <TextView
-                    android:layout_margin="40dp"
-                    android:textColor="@color/colorTextHeader"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_margin="40dp"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:text="Share"
+                    android:textColor="@color/colorTextHeader"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -91,22 +92,23 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/settingsRateUs_cl"
                 android:layout_width="0dp"
-                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
-                android:padding="40dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/main_button_with_ripple_bg"
                 android:elevation="5dp"
+                android:padding="40dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline16"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
                 app:layout_constraintTop_toBottomOf="@+id/settingsShare_cl">
 
                 <TextView
-                    android:textColor="@color/colorTextHeader"
                     android:id="@+id/textView15"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:text="Rate us"
+                    android:textColor="@color/colorTextHeader"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -122,20 +124,21 @@
                 android:id="@+id/settingsAbout_cl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="40dp"
-                android:layout_marginTop="20dp"
-                android:elevation="5dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/main_button_with_ripple_bg"
+                android:elevation="5dp"
+                android:padding="40dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline16"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
                 app:layout_constraintTop_toBottomOf="@+id/settingsRateUs_cl">
 
                 <TextView
-                    android:textColor="@color/colorTextHeader"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:text="About"
+                    android:textColor="@color/colorTextHeader"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -150,22 +153,23 @@
                 android:id="@+id/settingsMore_cl"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:padding="40dp"
-                android:elevation="5dp"
-                android:background="@drawable/main_button_with_ripple_bg"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/main_button_with_ripple_bg"
+                android:elevation="5dp"
+                android:padding="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline16"
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
                 app:layout_constraintTop_toBottomOf="@+id/settingsAbout_cl">
 
                 <TextView
-                    android:textColor="@color/colorTextHeader"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:maxLines="1"
                     android:text="More"
+                    android:textColor="@color/colorTextHeader"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -177,8 +181,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:elevation="10dp"
                 android:src="@drawable/ic_share"
                 app:layout_constraintBottom_toTopOf="@+id/settingsShare_cl"
@@ -187,9 +191,9 @@
                 app:layout_constraintTop_toTopOf="@+id/settingsShare_cl" />
 
             <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:elevation="10dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
                 android:src="@drawable/ic_rate_us"
                 app:layout_constraintBottom_toTopOf="@+id/settingsRateUs_cl"
                 app:layout_constraintEnd_toStartOf="@+id/settingsRateUs_cl"
@@ -197,10 +201,9 @@
                 app:layout_constraintTop_toTopOf="@+id/settingsRateUs_cl" />
 
             <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:elevation="10dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="45dp"
                 android:src="@drawable/ic_about"
                 app:layout_constraintBottom_toTopOf="@+id/settingsAbout_cl"
                 app:layout_constraintEnd_toStartOf="@+id/settingsAbout_cl"
@@ -208,10 +211,9 @@
                 app:layout_constraintTop_toTopOf="@+id/settingsAbout_cl" />
 
             <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:elevation="10dp"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="71dp"
                 android:src="@drawable/ic_more_icon"
                 app:layout_constraintBottom_toTopOf="@+id/settingsMore_cl"
                 app:layout_constraintEnd_toStartOf="@+id/settingsMore_cl"

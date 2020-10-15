@@ -1,6 +1,9 @@
 package learn.numbers.all.major.languages.clone.adapters;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +27,8 @@ public class OtherLanguagesAdapter extends RecyclerView.Adapter<OtherLanguagesAd
     private String[] numberWordArray;
     private String[] numPronunciationArray;
 
-    TextToSpeech textToSpeech;
-    private int counter=0;
+    TextToSpeech tts;
+    private int counter = 0;
 
     public OtherLanguagesAdapter(Context context, ArrayList<String> numberArray,
                                  String[] numberWordArray, String[] numPronunciationArray) {
@@ -33,6 +36,16 @@ public class OtherLanguagesAdapter extends RecyclerView.Adapter<OtherLanguagesAd
         this.numberArray = numberArray;
         this.numberWordArray = numberWordArray;
         this.numPronunciationArray = numPronunciationArray;
+        tts = new TextToSpeech(context,
+                new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(int i) {
+                    }
+                });
+
+        tts.setLanguage(Locale.US);
+        tts.setSpeechRate(1f);
+        loadingDialog();
     }
 
     @NonNull
@@ -60,43 +73,46 @@ public class OtherLanguagesAdapter extends RecyclerView.Adapter<OtherLanguagesAd
         holder.hNum_cl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textToSpeech = new TextToSpeech(context, new TextToSpeech.OnInitListener() {
-                    @Override
-                    public void onInit(int i) {
-                        textToSpeech.setLanguage(Locale.US);
-                        if (textToSpeech.isSpeaking() && counter!=1){
-                                return;
-                        }
-                        else{
-                            counter = 0;
-                        }
-
-                        counter++;
-                        textToSpeech.speak(holder.numPronounce_tv.getText(),
-                                TextToSpeech.QUEUE_FLUSH, null, null);
-
-
-                    }
-                });
+                callNumber(holder.numPronounce_tv.getText().toString());
             }
         });
 
 
     }
 
-    public void shutDown() {
+    public void callNumber(final String numString) {
 
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
+        if (tts.isSpeaking()) {
+            tts.stop();
+            tts.speak(numString, TextToSpeech.QUEUE_FLUSH,
+                    null, null);
+            return;
         }
-    }
+        tts.speak(numString, TextToSpeech.QUEUE_FLUSH,
+                null, null);
 
+
+    }
     @Override
     public int getItemCount() {
         return 101;
     }
 
+    public void loadingDialog() {
+        try {
+            final ProgressDialog showDialog = ProgressDialog.show(context,
+                    context.getString(R.string.app_name), "Please wait",
+                    true);
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    showDialog.dismiss();
+                }
+            }, 2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     class NumbsHolder extends RecyclerView.ViewHolder {
         TextView num_tv1, num_tv2, numWord_tv, numPronounce_tv;
         ConstraintLayout hNum_cl;

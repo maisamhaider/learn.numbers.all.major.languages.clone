@@ -22,6 +22,7 @@ public class CustomAct extends BaseAct {
         setContentView(R.layout.activity_custom);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initConverters();
+        loadingDialog();
        Pref preferences = new Pref(CustomAct.this);
         final EditText input_mEt = findViewById(R.id.inputNumber_mEt);
         TextView customSLang_mtv = findViewById(R.id.customActSLang_mtv);
@@ -68,23 +69,11 @@ public class CustomAct extends BaseAct {
                 if (!input_mEt.getText().toString().matches("")) {
                     long num = Long.parseLong(input_mEt.getText().toString());
                     result_mTv.setText(converter.convertNumber(num));
-
                 }
             }
         });
 
     }
 
-    @Override
-    protected void onPause() {
-        shutDown();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        shutDown();
-        super.onDestroy();
-    }
 
 }

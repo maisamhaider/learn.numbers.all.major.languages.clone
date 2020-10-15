@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_speaker_black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,16 +27,24 @@
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="zero to trillion"
             android:textColor="@color/colorTextHeader"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline42"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline42"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
         <TextView
             android:id="@+id/sNumSLang_tv"
@@ -44,9 +52,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="Fresh"
-             android:textSize="16sp"
-             app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline42"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -57,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
+        app:layout_constraintGuide_percent="0.99" />
 
     <ScrollView
         android:layout_width="0dp"
@@ -65,6 +75,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="4dp"
         android:scrollbars="none"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,8 +84,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -89,9 +99,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/zero_cl"
                     android:layout_width="match_parent"
-                    android:background="@drawable/main_button_with_ripple_bg"
-                    android:layout_height="170dp"
-                    android:layout_gravity="center">
+                    android:layout_height="90dp"
+                     android:background="@drawable/main_button_with_ripple_bg">
 
                     <View
                         android:id="@+id/view5"
@@ -108,7 +117,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
+                        app:layout_constraintGuide_percent="0.15" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline41"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
 
                     <TextView
                         android:id="@+id/tv0"
@@ -117,9 +133,8 @@
                          android:text="@string/zero_num"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline41"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="@+id/guideline26"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,12 +142,14 @@
                         android:id="@+id/targetWordNum_tvZero"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/zero"
-                        android:gravity="center"
                         android:textSize="18sp"
-                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline26"
-                        app:layout_constraintTop_toBottomOf="@+id/tv0"
+                        app:layout_constraintTop_toTopOf="@+id/guideline41"
+                        app:layout_constraintVertical_bias="0.0"
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <ImageView
@@ -166,18 +183,24 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/hundred_cl"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@drawable/main_button_with_ripple_bg"
-                    android:layout_gravity="center">
+                    android:layout_height="90dp"
+                     android:background="@drawable/main_button_with_ripple_bg">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline43"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
 
                     <TextView
                         android:id="@+id/tv100"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/hundred_n"
+                         android:text="@string/hundred_n"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline43"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline28"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -186,12 +209,14 @@
                         android:id="@+id/targetWordNum_tvHundred"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                         android:gravity="center"
                         android:text="@string/hundred"
                         android:textSize="18sp"
-                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline28"
-                        app:layout_constraintTop_toBottomOf="@+id/tv100"
+                        app:layout_constraintTop_toTopOf="@+id/guideline43"
+                        app:layout_constraintVertical_bias="0.0"
                         app:layout_constraintVertical_chainStyle="packed" />
 
 
@@ -210,7 +235,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
+                        app:layout_constraintGuide_percent="0.15" />
+
                     <ImageView
                         android:id="@+id/pronounceTWord_iv2"
                         android:layout_width="30dp"
@@ -229,6 +255,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
@@ -239,20 +266,26 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/thousand_cl"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@drawable/main_button_with_ripple_bg"
-                    android:layout_gravity="center">
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/main_button_with_ripple_bg">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline44"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
 
                     <TextView
                         android:id="@+id/tv1000"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/thousand_n"
+                         android:text="@string/thousand_n"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline44"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="@+id/guideline30"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -260,12 +293,12 @@
                         android:id="@+id/targetWordNum_tvThousand"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/thousand"
-                        android:gravity="center"
                         android:textSize="18sp"
-                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline30"
-                        app:layout_constraintTop_toBottomOf="@+id/tv1000"
+                        app:layout_constraintTop_toTopOf="@+id/guideline44"
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <View
@@ -283,7 +316,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
+                        app:layout_constraintGuide_percent="0.15" />
 
                     <ImageView
                         android:layout_width="30dp"
@@ -298,28 +331,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-    </ScrollView>
-
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="2dp"
-            android:orientation="vertical">
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -333,10 +344,16 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/million_cl"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@drawable/main_button_with_ripple_bg"
-                    android:layout_gravity="center">
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/main_button_with_ripple_bg">
 
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline45"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
                     <View
                         android:id="@+id/view6"
                         android:layout_width="0dp"
@@ -352,19 +369,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
+                        app:layout_constraintGuide_percent="0.15" />
 
                     <TextView
 
                         android:id="@+id/textView9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/million_n"
+                         android:text="@string/million_n"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline45"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="@+id/guideline27"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -372,13 +388,14 @@
                         android:id="@+id/million_tv"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/million"
                         android:textSize="18sp"
-                        android:gravity="center"
-                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline27"
-                        app:layout_constraintTop_toBottomOf="@+id/textView9"
+                        app:layout_constraintTop_toTopOf="@+id/guideline45"
+                        app:layout_constraintVertical_bias="0.0"
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <ImageView
@@ -411,33 +428,44 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/billion_cl"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@drawable/main_button_with_ripple_bg"
-                    android:layout_gravity="center">
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/main_button_with_ripple_bg">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline46"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
 
                     <TextView
                         android:id="@+id/textView10"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/billion_n"
                         android:textSize="18sp"
-                        android:gravity="center"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline46"
                         app:layout_constraintEnd_toEndOf="parent"
-                         app:layout_constraintStart_toStartOf="@+id/guideline29"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/guideline29"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.761" />
 
                     <TextView
                         android:id="@+id/billion_tv"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/billion"
                         android:textSize="18sp"
-                        android:gravity="center"
-                         app:layout_constraintEnd_toEndOf="parent"
-                         app:layout_constraintStart_toStartOf="@+id/guideline29"
-                        app:layout_constraintTop_toBottomOf="@+id/textView10"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guideline29"
+                        app:layout_constraintTop_toTopOf="@+id/guideline46"
+                        app:layout_constraintVertical_bias="0.0"
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <View
@@ -455,7 +483,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
+                        app:layout_constraintGuide_percent="0.15" />
 
                     <ImageView
                         android:layout_width="30dp"
@@ -477,6 +505,7 @@
                 android:layout_weight="1"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp"
+                android:layout_marginBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toTopOf="parent">
@@ -484,21 +513,27 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/trillion_cl"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:background="@drawable/main_button_with_ripple_bg"
-                    android:layout_gravity="center">
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/main_button_with_ripple_bg">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline47"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.5" />
 
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/trillion_n"
                         android:textSize="18sp"
-                        android:gravity="center"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/guideline47"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="@+id/guideline31"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -506,13 +541,14 @@
                         android:id="@+id/trillion_tv"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                         android:gravity="center"
                         android:text="@string/trillion"
                         android:textSize="18sp"
-                        android:gravity="center"
-                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/guideline31"
-                        app:layout_constraintTop_toBottomOf="@+id/textView11"
+                        app:layout_constraintTop_toTopOf="@+id/guideline47"
+                        app:layout_constraintVertical_bias="0.0"
                         app:layout_constraintVertical_chainStyle="packed" />
 
                     <View
@@ -530,7 +566,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
+                        app:layout_constraintGuide_percent="0.15" />
 
                     <ImageView
                         android:layout_width="30dp"
@@ -544,7 +580,8 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-
         </LinearLayout>
     </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

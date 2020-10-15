@@ -53,5 +53,8 @@ public @interface MyAnno {
       String TARGET_LANGUAGE = "TARGET_LANGUAGE";
       String USER_LANGUAGE = "USER_LANGUAGE";
 
+      String LAST_TEXT_INPUT = "LAST_TEXT_INPUT";
+      String LAST_TEXT_RESULT = "LAST_TEXT_RESULT";
+
 
 }

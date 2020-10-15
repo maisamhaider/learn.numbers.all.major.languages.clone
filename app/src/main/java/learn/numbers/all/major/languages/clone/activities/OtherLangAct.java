@@ -161,22 +161,22 @@ public class OtherLangAct extends AppCompatActivity {
                 "samanya wa ishrun", "thisa wa ishrun", "salasun", "wahid wa salasun",
                 "ithnan wa salasun", "salasah wa salasun", "arbaa wa salasun",
                 "khamsa wa salasun", "sitta wa salasun", "suba wa salasun",
-                "samanya wa salasun", "thisa wa salasun", "arba-on", "wahid wa arba-on",
-                "ithnan wa arba-on", "salasah wa arba-on", "arbaa wa arba-on", "khamsa wa arba-on",
-                "sitta wa arba-on", "suba wa arba-on", "samanya wa arba-on", "thisa wa arba-on",
+                "samanya wa salasun", "thisa wa salasun", "arba on", "wahid wa arba on",
+                "ithnan wa arba on", "salasah wa arba on", "arbaa wa arba on", "khamsa wa arba on",
+                "sitta wa arba on", "suba wa arba on", "samanya wa arba on", "thisa wa arba on",
                 "khamson", "wahid wa khamson", "ithnan wa khamson", "salasah wa khamson",
                 "arbaa wa khamson", "khamsa wa khamson", "sitta wa khamson", "suba wa khamson",
                 "samanya wa khamson", "thisa wa khamson", "sitton", "wahid wa sitton",
                 "ithnan wa sitton", "salasah wa sitton", "arbaa wa sitton", "khamsa wa sitton",
                 "sitta wa sitton", "suba wa sitton", "samanya wa sitton", "thisa wa sitton",
-                "sub-on", "wahid wa sub-o", "ithnan wa sub-o", "salasah wa sub-o",
-                "arbaa wa sub-o", "khamsa wa sub-o", "ّitta wa sub-o", "suba wa sub-o ",
-                "samanya wa sub-o", "thisa wa sub-o  ", "sama-nun", "ِwahid wa sama-nun ",
-                " ithnan wa sama-nun", "salasah wa sama-nun", "arbaa wa sama-nun", "khamsa wa sama-nun",
-                "sitta wa sama-nun", "suba wa sama-nun", "samanya wa sama-nun",
-                "thisa wa sama-nun", "this-on", "wahid wa this-on", "ithnan wa this-on ",
-                "salasah wa this-on ", "arbaa wa this-on", "khamsa wa this-on", "sitta wa this-on",
-                "suba wa this-on", "samanya wa this-on", "thisa wa this-on", "miyathan"};
+                "sub on", "wahid wa sub o", "ithnan wa sub o", "salasah wa sub o",
+                "arbaa wa sub o", "khamsa wa sub o", "ّitta wa sub o", "suba wa sub o ",
+                "samanya wa sub o", "thisa wa sub o", "sama-nun", "ِwahid wa sama nun ",
+                " ithnan wa sama nun", "salasah wa sama nun", "arbaa wa sama nun", "khamsa wa sama nun",
+                "sitta wa sama nun", "suba wa sama-nun", "samanya wa sama-nun",
+                "thisa wa sama nun", "this on", "wahid wa this on", "ithnan wa this on ",
+                "salasah wa this on ", "arbaa wa this on", "khamsa wa this on", "sitta wa this on",
+                "suba wa this on", "samanya wa this on", "thisa wa this on", "miyathan"};
 
         persianEngPronounce = new String[]{
                 "sifr", "yek", "dō", "sé", "chāhār", "panj", "sheesh", "haft",
@@ -200,25 +200,24 @@ public class OtherLangAct extends AppCompatActivity {
                 "navad o haft", "navad o hasht", "navad o noh", "sad"};
 
         pakhtuEngPronounce = new String[]
-                {"sifr", "yo", "dua", "dray", "saloor", "pindza", "špag", "owa", "atha", "naha", "lus",
-                        "yow-lus", "do-lus", "dyar-lus", "swar-lus", "pinza-lus", "špaa-rass",
-                        "wa-lus", "atha-lus", "no-nas", "shal", "yu-wisht", "du-wisht", "dray-wisht",
-                        "saloor-wisht", "pindza-wisht", "špag-wisht", "wa-wisht", "atha-wisht",
-                        "naha-wisht", "dersh", "yu-dersh", "dua-dersh", "dray-dersh",
-                        "saloor-dersh", "pindza-dersh", "špag-dersh", "wa-dersh", "atha-dersh",
-                        "naha-dersh", "sulwēkht", "you-sulwēkht", "dua-sulwēkht", "dray-sulwēkht",
-                        "saloor-sulwēkht", "pindza-sulwēkht", "špag-sulwēkht", "wa-sulwēkht",
-                        "atha-sulwēkht", "naha-sulwēkht", "pendzos", "yu-pendzos", "dua-pendzos",
-                        "dray-pendzos", "saloor-pendzos", "pindza-pendzos", "špag-pendzos",
-                        "wa-pendzos", "atha-pendzos", "naha-pendzos", "špetha", "yu-špetha",
-                        "dua-špetha", "dray-špetha", "saloor-špetha", "pindza-špetha", "špag-špetha",
-                        "wa-špetha", "atha-špetha", "naha-špetha", "auyiâ", "yu-auyiâ", "dua-auyiâ",
-                        "dray-auyiâ", "saloor-auyiâ", "pindza-auyiâ", "špag-auyiâ",
-                        "wa-auyiâ", "atha-auyiâ", "naha-auyiâ", "atya", "yu-atya", "dua-atya",
-                        "dray-atya", "saloor-atya", "pindza-atya", "špag-atya",
-                        "wa-atya", "atha-atya", "naha-atya", "nowi", "yu-nowi", "dua-nowi",
-                        "dray-nowi", "saloor-nowi", "pindza-nowi", "špag-nowi", "wa-nowi",
-                        "atha-nowi", "naha-nowi", "sal"
+                {"sifr", "yo", "dua", "dray", "saloor", "pindza", "špag", "owa", "atha", "naha","lus",
+                        "yow lus", "do lus", "dyar lus", "swar lus", "pinza lus", "špaa rass",
+                        "wa lus", "atha lus", "no nas", "shal", "yu wisht", "du wisht", "dray wisht",
+                        "saloor wisht", "pindza wisht", "špag wisht", "wa wisht", "atha wisht",
+                        "naha wisht", "dersh", "yu dersh", "dua dersh", "dray dersh",
+                        "saloor dersh", "pindza dersh", "špag dersh", "wa dersh", "atha dersh",
+                        "naha dersh", "sulwēkht", "you sulwēkht", "dua sulwēkht", "dray sulwēkht",
+                        "saloor sulwēkht", "pindza sulwēkht", "špag sulwēkht", "wa sulwēkht",
+                        "atha sulwēkht", "naha sulwēkht", "pendzos", "yu pendzos", "dua pendzos",
+                        "dray pendzos", "saloor pendzos", "pindza pendzos", "špag pendzos",
+                        "wa pendzos", "atha pendzos", "naha pendzos", "špetha", "yu špetha",
+                        "dua špetha", "dray špetha", "saloor špetha", "pindza špetha", "špag špetha",
+                        "wa špetha", "atha špetha", "naha špetha", "auyiâ", "yu auyiâ", "dua auyiâ",
+                        "dray-auyiâ", "saloor-auyiâ", "pindza auyiâ", "špag auyiâ", "wa auyiâ",
+                        "atha auyiâ", "naha auyiâ", "atya", "yu atya", "dua atya", "dray-atya",
+                        "saloor atya", "pindza atya", "špag atya", "wa atya", "atha atya",
+                        "naha atya", "nowi", "yu nowi", "dua nowi", "dray nowi", "saloor nowi",
+                        "pindza nowi", "špag nowi", "wa nowi", "atha nowi", "naha nowi", "sal"
                 };
     }
 
@@ -251,13 +250,11 @@ public class OtherLangAct extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        adapter.shutDown();
-    }
+     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        adapter.shutDown();
-    }
+     }
 
 }

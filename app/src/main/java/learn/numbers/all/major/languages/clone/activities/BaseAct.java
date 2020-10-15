@@ -1,23 +1,16 @@
 package learn.numbers.all.major.languages.clone.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.Locale;
 
@@ -27,6 +20,7 @@ import learn.numbers.all.major.languages.clone.interfaces.Language;
 import learn.numbers.all.major.languages.clone.languagesutils.AFRIKAANNumConverter;
 import learn.numbers.all.major.languages.clone.languagesutils.CHINESENumConverter;
 import learn.numbers.all.major.languages.clone.languagesutils.ENGLISHNumConverter;
+import learn.numbers.all.major.languages.clone.languagesutils.ESTONIANNumConverter;
 import learn.numbers.all.major.languages.clone.languagesutils.FRENCHNumConverter;
 import learn.numbers.all.major.languages.clone.languagesutils.GERMANNumConverter;
 import learn.numbers.all.major.languages.clone.languagesutils.GREEKumConverter;
@@ -49,143 +43,87 @@ public class BaseAct extends AppCompatActivity {
     private Pref preferences;
     public Language converter;
     private TextToSpeech tts;
-    InterstitialAd interstitialAd;
+//    InterstitialAd interstitialAd;
     private int counter = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferences = new Pref(BaseAct.this);
-        loadInterstitial();
-        MobileAds.initialize(getApplicationContext(), new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+//        loadInterstitial();
         initConverters();
-        tts = new TextToSpeech(BaseAct.this,
+        tts = new TextToSpeech(this,
                 new TextToSpeech.OnInitListener() {
                     @Override
                     public void onInit(int i) {
                     }
                 });
 
+        tts.setLanguage(Locale.US);
+        tts.setSpeechRate(1f);
+
     }
 
-    public void loadInterstitial() {
-        interstitialAd = new InterstitialAd(getApplicationContext());
-        interstitialAd.setAdUnitId(getString(R.string.interstitial));
-        try {
-            if (!interstitialAd.isLoading() && !interstitialAd.isLoaded()) {
-                AdRequest adRequest = new AdRequest.Builder().build();
-                interstitialAd.loadAd(adRequest);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        reqNewInterstitial();
-
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
-    }
-
-    public void reqNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-        interstitialAd.loadAd(adRequest);
-    }
-
-//    public void sNewActivityAds(final Activity activity, String key, final String data) {
-//        if (interstitialAd != null && interstitialAd.isLoaded()) {
-//            interstitialAd.show();
-//        } else {
-//            Intent intent = new Intent(getApplicationContext(), activity.getClass());
-//            intent.putExtra(key, data);
-//            startActivity(intent);
+//    public void loadInterstitial() {
+//        interstitialAd = new InterstitialAd(getApplicationContext());
+//        interstitialAd.setAdUnitId(getString(R.string.interstitial));
+//        try {
+//            if (!interstitialAd.isLoading() && !interstitialAd.isLoaded()) {
+//                AdRequest adRequest = new AdRequest.Builder().build();
+//                interstitialAd.loadAd(adRequest);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
 //        }
-//        interstitialAd.setAdListener(new AdListener() {
+//        reqNewInterstitial();
+//
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
 //            @Override
-//            public void onAdClosed() {
-//                reqNewInterstitial();
-//                Intent intent = new Intent(getApplicationContext(), activity.getClass());
-//                intent.putExtra("key", data);
-//                startActivity(intent);
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
 //            }
 //        });
-//
+//    }
+
+//    public void reqNewInterstitial() {
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .build();
+//        interstitialAd.loadAd(adRequest);
 //    }
 
     public void sNFragmentAds(final Fragment fragment) {
-        if (interstitialAd != null && interstitialAd.isLoaded()) {
-            interstitialAd.show();
-        } else {
-            loadFragment(fragment);
-        }
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                reqNewInterstitial();
-                loadFragment(fragment);
-            }
-        });
-
-    }
-
-//    public void adOnNumClick(final long number) {
 //        if (interstitialAd != null && interstitialAd.isLoaded()) {
-//            interstitialAd.show();
+////            interstitialAd.show();
 //        } else {
-//
-//            speakNum(converter.convertNumber(number));
+//            loadFragment(fragment);
 //        }
 //        interstitialAd.setAdListener(new AdListener() {
 //            @Override
 //            public void onAdClosed() {
-//                speakNum(converter.convertNumber(number));
 //                reqNewInterstitial();
 //
 //            }
 //        });
-//    }
+        loadFragment(fragment);
 
-//    public void adOnNumClick(final String s) {
-//        if (interstitialAd != null && interstitialAd.isLoaded()) {
-//            interstitialAd.show();
-//        } else {
-//
-//            speakNum(s);
-//        }
-//        interstitialAd.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdClosed() {
-//                speakNum(s);
-//                reqNewInterstitial();
-//
-//            }
-//        });
-
-//    }
-
-    public void adView(final AdView adView) {
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                adView.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAdFailedToLoad(LoadAdError var1) {
-                adView.setVisibility(View.GONE);
-            }
-
-        });
     }
+
+//    public void adView(final AdView adView) {
+//
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        adView.loadAd(adRequest);
+//        adView.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdLoaded() {
+//                adView.setVisibility(View.VISIBLE);
+//            }
+//
+//            @Override
+//            public void onAdFailedToLoad(LoadAdError var1) {
+//                adView.setVisibility(View.GONE);
+//            }
+//
+//        });
+//    }
 
     public void loadFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
@@ -195,7 +133,7 @@ public class BaseAct extends AppCompatActivity {
 
     public void initConverters() {
 
-        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false)) {
+        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY, false)) {
             case MyAnno.Afrikaan:
                 converter = new AFRIKAANNumConverter();
                 break;
@@ -206,7 +144,7 @@ public class BaseAct extends AppCompatActivity {
                 converter = new ENGLISHNumConverter();
                 break;
             case MyAnno.Estonian:
-                converter = new ENGLISHNumConverter();
+                converter = new ESTONIANNumConverter();
                 break;
             case MyAnno.French:
                 converter = new FRENCHNumConverter();
@@ -266,97 +204,80 @@ public class BaseAct extends AppCompatActivity {
     }
 
     public void callNumber(final String numString) {
-        switch (preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false)) {
 
-            case MyAnno.French:
-                tts = new TextToSpeech(BaseAct.this,
-                        new TextToSpeech.OnInitListener() {
-                            @Override
-                            public void onInit(int i) {
-                                tts.setLanguage(Locale.FRANCE);
-                                if (tts.isSpeaking() && counter != 1) {
-                                    return;
-                                } else {
-                                    counter = 0;
-                                }
+//        if (tts!=null && tts.isSpeaking() && counter != 1) {
+//            tts.stop();
+//            tts.shutdown();
+//        }
 
-                                counter++;
-                                tts.speak(numString, TextToSpeech.QUEUE_FLUSH, null,
-                                        null);
-                            }
-                        });
-                break;
-            case MyAnno.German:
-                tts = new TextToSpeech(BaseAct.this,
-                        new TextToSpeech.OnInitListener() {
-                            @Override
-                            public void onInit(int i) {
-                                tts.setLanguage(Locale.GERMAN);
-                                if (tts.isSpeaking() && counter != 1) {
-                                    return;
-                                } else {
-                                    counter = 0;
-                                }
+//        tts = new TextToSpeech(BaseAct.this,
+//                new TextToSpeech.OnInitListener() {
+//                    @Override
+//                    public void onInit(int i) {
+//                        if (i == TextToSpeech.SUCCESS) {
+//
+//                        } else {
+//                            Toast.makeText(BaseAct.this, "Error with TTS", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//                });
 
-                                counter++;
-                                tts.speak(numString, TextToSpeech.QUEUE_FLUSH, null,
-                                        null);
-                            }
-                        });
-                break;
-            case MyAnno.Italian:
-                tts = new TextToSpeech(BaseAct.this,
-                        new TextToSpeech.OnInitListener() {
-                            @Override
-                            public void onInit(int i) {
-                                tts.setLanguage(Locale.ITALIAN);
-                                if (tts.isSpeaking() && counter != 1) {
-                                    return;
-                                } else {
-                                    counter = 0;
-                                }
-                                counter++;
-                                tts.speak(numString, TextToSpeech.QUEUE_FLUSH, null,
-                                        null);
-                            }
-                        });
-                break;
 
-            case MyAnno.Korean:
-
-                tts = new TextToSpeech(BaseAct.this,
-                        new TextToSpeech.OnInitListener() {
-                            @Override
-                            public void onInit(int i) {
-                                tts.setLanguage(Locale.KOREAN);
-                                if (tts.isSpeaking() && counter != 1) {
-                                    return;
-                                } else {
-                                    counter = 0;
-                                }
-                                counter++;
-                                tts.speak(numString, TextToSpeech.QUEUE_FLUSH, null,
-                                        null);
-                            }
-                        });
-                break;
-            default:
-                tts.setLanguage(Locale.US);
-                if (tts.isSpeaking() && counter != 1) {
-                    return;
-                } else {
-                    counter = 0;
-                }
-                counter++;
-                tts.speak(numString, TextToSpeech.QUEUE_FLUSH,
-                        null, null);
+        if (tts.isSpeaking()) {
+            tts.stop();
+            tts.speak(numString, TextToSpeech.QUEUE_FLUSH,
+                    null, null);
+            return;
         }
+        tts.speak(numString, TextToSpeech.QUEUE_FLUSH,
+                null, null);
+
+
     }
 
-    public void shutDown() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
         if (tts != null) {
             tts.stop();
             tts.shutdown();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        }
+
+    public void loadingDialog() {
+        try {
+            final ProgressDialog showDialog = ProgressDialog.show(this,
+                    getString(R.string.app_name), "Please wait a seconds",
+                    true);
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    showDialog.dismiss();
+                }
+            }, 2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
+
+
+
+
 }

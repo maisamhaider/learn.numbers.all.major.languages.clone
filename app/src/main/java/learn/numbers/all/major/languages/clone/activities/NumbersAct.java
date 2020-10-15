@@ -3,12 +3,11 @@ package learn.numbers.all.major.languages.clone.activities;
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import com.google.android.gms.ads.AdView;
 
 import learn.numbers.all.major.languages.clone.R;
 import learn.numbers.all.major.languages.clone.annotations.MyAnno;
@@ -24,10 +23,13 @@ public class NumbersAct extends BaseAct implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        try {
+
+
         initConverters();
         WHICH_NUMBERS = getIntent().getStringExtra(MyAnno.Which_Number);
-        AdView aView = findViewById(R.id.numberAct_adView);
-        adView(aView);  
+//        AdView aView = findViewById(R.id.numberAct_adView);
+//        adView(aView);
         TextView num_tv1 = findViewById(R.id.num_tv1);
         TextView num_tv2 = findViewById(R.id.num_tv2);
         TextView num_tv3 = findViewById(R.id.num_tv3);
@@ -109,6 +111,14 @@ public class NumbersAct extends BaseAct implements View.OnClickListener {
         clSeven.setOnClickListener(this);
         clEight.setOnClickListener(this);
         clNine.setOnClickListener(this);
+        loadingDialog();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            Log.e("error_two",e.getMessage());
+        }
+
     }
 
     public void OneToNineFun(TextView view) {
@@ -325,17 +335,10 @@ public class NumbersAct extends BaseAct implements View.OnClickListener {
             }
         }
     }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        shutDown();
-    }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        shutDown();
     }
-
-
 }

@@ -12,14 +12,16 @@
         android:layout_height="50dp"
          android:gravity="center"
         android:text="Thanks for installing this app."
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorWhite"
         android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="@color/colorTextSmall"
         android:id="@+id/textView47"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,6 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <TextView
+        android:textColor="@color/colorTextSmall"
         android:id="@+id/textView48"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,12 +61,16 @@
 
 
     <TextView
+
+        android:background="@drawable/blue_flate_with_ripple_bg"
+        android:textColor="@color/colorWhite"
         android:id="@+id/aboutUsCloseApp_tv"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
          android:gravity="center"
         android:text="Close"
+        android:maxLines="1"
          android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

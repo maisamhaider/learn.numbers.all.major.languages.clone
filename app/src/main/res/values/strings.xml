@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LearnNumbersAllMajorLanguagesClone</string>
+    <string name="app_name">Learn Numbers All Major Languages Clone</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -11,6 +11,7 @@
     //test ids
     <string name="banner">ca-app-pub-3940256099942544/6300978111</string>
     <string name="interstitial">ca-app-pub-3940256099942544/1033173712</string>
+
     <string name="one_to_nine">1-9</string>
     <string name="one_to_hundred">1-100</string>
     <string name="eleven_to_nineteen">11-19</string>
@@ -62,10 +63,9 @@
     <string name="number">Number:</string>
 
 
-    <string name="info_about">In this application you will able to learn digit in different languages. This app helps you to learn numbers in right side writing direction languages(Arabic,Persian,Pakhtu and Urdu).</string>
-
-    <string name="permission_texts">This application requires no permissions to perform its actions. (Learn Numbers All Major Languages) helps user in Learning Digits in different languages with voice for each digits and numbers.We insure you that the user personal data or information is not collected by the company nor does the application host users data</string>
+    <string name="info_about">By using this application you will able to learn digits in different languages and translate words, phrases, sentences and full paragraphs. This app helps you to learn numbers in right side writing direction languages(Arabic,Persian,Pakhtu and Urdu).</string>
+    <string name="permission_texts">This application requires no permissions to perform its actions. (Learn Numbers And Translator) helps user in Learning Digits in different languages with voice for each digits and numbers and user can translate into another language.We insure you that the user personal data or information is not collected by the company nor does the application host users data</string>
     <string name="exit_text">Are you sure you want to\n exit?</string>
-    <string name="thanks_and_feedback">Thanks for using our app for further suggestion to add language please give us your feedback send us email at(aquatrixtechnologies.inc@gmail.com).</string>
+    <string name="thanks_and_feedback">Thanks for using our app for further suggestion to add language please give us your feedback send us email at(freebirdisapps@gmail.com).</string>
 
 </resources>

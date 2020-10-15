@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="400dp">
+    android:layout_height="match_parent"
+     android:background="@android:color/transparent"
+    tools:context=".activities.LanguageNameActivity">
 
     <TextView
-        android:background="@color/colorAccent"
-        android:paddingStart="10dp"
-        android:gravity="center|start"
         android:id="@+id/textView"
-         android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center|start"
+        android:paddingStart="10dp"
+        android:textSize="14sp"
         android:text="select language"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,7 +24,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/lang_rv"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
         app:layout_constraintBottom_toTopOf="@+id/done_tv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,18 +32,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-         android:textStyle="bold"
-        android:gravity="center"
-        android:text="Done"
         android:id="@+id/done_tv"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:background="?android:attr/selectableItemBackground"
-         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/blue_button_with_ripple_bg"
+        android:gravity="center"
+        android:text="Done"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

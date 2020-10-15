@@ -1,5 +1,6 @@
 package learn.numbers.all.major.languages.clone.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,23 +10,21 @@ import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.android.gms.ads.AdView;
-
 import learn.numbers.all.major.languages.clone.R;
 import learn.numbers.all.major.languages.clone.activities.CustomAct;
 import learn.numbers.all.major.languages.clone.activities.ExtraNumbersAct;
+import learn.numbers.all.major.languages.clone.activities.LanguageNameActivity;
 import learn.numbers.all.major.languages.clone.activities.NumbersAct;
 import learn.numbers.all.major.languages.clone.activities.OtherLangAct;
 import learn.numbers.all.major.languages.clone.annotations.MyAnno;
-import learn.numbers.all.major.languages.clone.interfaces.TextChangedInterface;
 import learn.numbers.all.major.languages.clone.preferences.Pref;
-import learn.numbers.all.major.languages.clone.utils.MyUtil;
 
 
-public class HomeFragment extends BaseFragment implements View.OnLongClickListener {
+public class HomeFragment extends BaseFragment {
 
     private Pref preferences;
     TextView sSelected_language_tv;
+    boolean clicked = false;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -50,12 +49,10 @@ public class HomeFragment extends BaseFragment implements View.OnLongClickListen
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
         preferences = new Pref(getContext());
 
-        AdView aView = view.findViewById(R.id.homeFrag_adView);
-        adView(aView);
         sSelected_language_tv = view.findViewById(R.id.sSelected_language_tv);
         ImageView home_lang_change_iv = view.findViewById(R.id.home_lang_change_iv);
         sNameOfLang(sSelected_language_tv);
-        ConstraintLayout one_to_nine_cl = view.findViewById(R.id.one_to_nine_cl);
+        final ConstraintLayout one_to_nine_cl = view.findViewById(R.id.one_to_nine_cl);
         ConstraintLayout eleven_to_nineteen_cl = view.findViewById(R.id.eleven_to_nineteen_cl);
         ConstraintLayout ten_to_ninety_cl = view.findViewById(R.id.ten_to_ninety_cl);
         ConstraintLayout specialNumbers_cl = view.findViewById(R.id.specialNumbers_cl);
@@ -98,16 +95,15 @@ public class HomeFragment extends BaseFragment implements View.OnLongClickListen
             @Override
             public void onClick(View view) {
 
-                showLanguagesDialog(getActivity(), new TextChangedInterface() {
-                    @Override
-                    public boolean changed(String val) {
-                        sSelected_language_tv.setText(val);
-                        return false;
-                    }
-                });
+
+                if (!clicked)
+                {
+                    clicked = true;
+                    Intent intent = new Intent(getActivity(), LanguageNameActivity.class);
+                    startActivity(intent);
+                }
             }
         });
-
         view.findViewById(R.id.one_to_100_arabic_cl).setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -135,22 +131,12 @@ public class HomeFragment extends BaseFragment implements View.OnLongClickListen
         return view;
     }
 
-
     @Override
-    public boolean onLongClick(View v) {
-        MyUtil util = new MyUtil();
-        switch (v.getId())
-        {
-            case R.id.one_to_nine_cl:
-                if (v.isPressed())
-                {
-//                    util.showView("");
-                }else
-                {
+    public void onResume() {
+        super.onResume();
+         clicked = false;
+        String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
+        sSelected_language_tv.setText(lastLang);
 
-                }
-                break;
-        }
-        return false;
     }
 }

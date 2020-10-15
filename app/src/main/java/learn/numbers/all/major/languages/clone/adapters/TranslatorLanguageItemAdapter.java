@@ -114,9 +114,7 @@ public class TranslatorLanguageItemAdapter extends
                 }
                 notifyDataSetChanged();
             }
-        });
-
-    }
+        });}
 
     @Override
     public int getItemCount() {

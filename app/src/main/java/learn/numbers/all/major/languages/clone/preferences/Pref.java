@@ -25,12 +25,14 @@ public class Pref {
         editor.putBoolean(key, data).commit();
     }
 
-    public String getStringData(String sKey,boolean translator) {
-        if (translator)
-        {
-            return  preferences.getString(sKey, "en");
-        }
-        else return preferences.getString(sKey, MyAnno.English);
+    public String getStringData(String sKey, boolean translator) {
+        if (translator) {
+            return preferences.getString(sKey, "en");
+        } else return preferences.getString(sKey, MyAnno.English);
+    }
+
+    public String getStringData(String sKey) {
+        return preferences.getString(sKey, "");
     }
 
 

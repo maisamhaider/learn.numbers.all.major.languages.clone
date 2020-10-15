@@ -1,19 +1,19 @@
 package learn.numbers.all.major.languages.clone.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
+//
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 
@@ -30,16 +30,16 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
     private Pref preferences;
     private TextChangedInterface textChangedInterface;
     private int selected_position = -1;
-    InterstitialAd interstitialAd;
+//    InterstitialAd interstitialAd;
 
     public LangAdapter(Context context, ArrayList<String> languagesAL) {
         this.context = context;
         this.languagesAL = languagesAL;
         preferences = new Pref(context);
         this.list.add(preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false));
-        interstitialAd = new InterstitialAd(context);
-        interstitialAd.setAdUnitId(context.getResources().getString(R.string.interstitial));
-        reqNewInterstitial();
+//        interstitialAd = new InterstitialAd(context);
+//        interstitialAd.setAdUnitId(context.getResources().getString(R.string.interstitial));
+//        reqNewInterstitial();
     }
 
     @NonNull
@@ -51,67 +51,90 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
 
     @Override
     public void onBindViewHolder(@NonNull final LanguageHolder holder, final int position) {
-        final String cLanguageName = languagesAL.get(position);
+      try {
+          final String cLanguageName = languagesAL.get(position);
 
-        holder.langName_tv.setText(cLanguageName);
+          holder.langName_tv.setText(cLanguageName);
 
-        imageVisibility(holder.sLangItem_iv, cLanguageName);
+          imageVisibility(holder.sLangItem_iv, cLanguageName);
 
-        holder.langItemMain_cl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+          holder.langItemMain_cl.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
 
-                try {
-                    if (interstitialAd != null && interstitialAd.isLoaded()) {
-                        interstitialAd.show();
-                    }
-                    else
-                        {
-                            final String name = languagesAL.get(position);
-                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
-                            list.remove(lastLang);
-                            preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
-                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
-                            list.add(newLang);
+                  final String name = languagesAL.get(position);
+                  String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY, false);
+                  list.remove(lastLang);
+                  preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
+                  String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY, false);
+                  list.add(newLang);
 //                imageVisibility(holder.sLanguageItem_iv, newLang);
-                            if (selected_position == position) {
-                                holder.sLangItem_iv.setVisibility(View.VISIBLE);
-                                selected_position = -1;
-                                notifyDataSetChanged();
-                                return;
-                            }
-                            selected_position = position;
-                            textChangedInterface.changed(newLang);
-                            notifyDataSetChanged();
-                    }
-                    interstitialAd.setAdListener(new AdListener() {
-                        @Override
-                        public void onAdClosed() {
-                            reqNewInterstitial();
-                            final String name = languagesAL.get(position);
-                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
-                            list.remove(lastLang);
-                            preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
-                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
-                            list.add(newLang);
-//                imageVisibility(holder.sLanguageItem_iv, newLang);
-                            if (selected_position == position) {
-                                holder.sLangItem_iv.setVisibility(View.VISIBLE);
-                                selected_position = -1;
-                                notifyDataSetChanged();
-                                return;
-                            }
-                            selected_position = position;
-                            textChangedInterface.changed(newLang);
-                            notifyDataSetChanged();
-                        }
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                  if (selected_position == position) {
+                      holder.sLangItem_iv.setVisibility(View.VISIBLE);
+                      selected_position = -1;
+                      notifyDataSetChanged();
+                      return;
+                  }
+                  selected_position = position;
+                  textChangedInterface.changed(newLang);
+                  notifyDataSetChanged();
 
-            }
-        });
+
+//                try {
+//                    if (interstitialAd != null && interstitialAd.isLoaded()) {
+//                        interstitialAd.show(); }
+//                    else
+//                        {
+//                            final String name = languagesAL.get(position);
+//                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
+//                            list.remove(lastLang);
+//                            preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
+//                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
+//                            list.add(newLang);
+////                imageVisibility(holder.sLanguageItem_iv, newLang);
+//                            if (selected_position == position) {
+//                                holder.sLangItem_iv.setVisibility(View.VISIBLE);
+//                                selected_position = -1;
+//                                notifyDataSetChanged();
+//                                return;
+//                            }
+//                            selected_position = position;
+//                            textChangedInterface.changed(newLang);
+//                            notifyDataSetChanged();
+//                    }
+//                    interstitialAd.setAdListener(new AdListener() {
+//                        @Override
+//                        public void onAdClosed() {
+//                            reqNewInterstitial();
+//                            final String name = languagesAL.get(position);
+//                            String lastLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
+//                            list.remove(lastLang);
+//                            preferences.setData(name, MyAnno.S_LANGUAGE_KEY);
+//                            String newLang = preferences.getStringData(MyAnno.S_LANGUAGE_KEY,false);
+//                            list.add(newLang);
+//                imageVisibility(holder.sLanguageItem_iv, newLang);
+//                            if (selected_position == position) {
+//                                holder.sLangItem_iv.setVisibility(View.VISIBLE);
+//                                selected_position = -1;
+//                                notifyDataSetChanged();
+//                                return;
+//                            }
+//                            selected_position = position;
+//                            textChangedInterface.changed(newLang);
+//                            notifyDataSetChanged();
+//                        }
+//                    });
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+
+              }
+          });
+      }
+      catch (Exception e)
+      {
+          Log.e("Error_one",e.getMessage());
+      }
 
     }
 
@@ -132,7 +155,7 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
     class LanguageHolder extends RecyclerView.ViewHolder {
         TextView langName_tv;
         ImageView sLangItem_iv;
-        RelativeLayout langItemMain_cl;
+        ConstraintLayout langItemMain_cl;
 
         public LanguageHolder(@NonNull View itemView) {
             super(itemView);
@@ -142,11 +165,10 @@ public class LangAdapter extends RecyclerView.Adapter<LangAdapter.LanguageHolder
         }
     }
 
-    public void reqNewInterstitial() {
-        interstitialAd.loadAd(new AdRequest.Builder().build());
-
-    }
-
+//    public void reqNewInterstitial() {
+//        interstitialAd.loadAd(new AdRequest.Builder().build());
+//    }
+//
     public void init(TextChangedInterface textChangedInterface) {
         this.textChangedInterface = textChangedInterface;
     }

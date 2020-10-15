@@ -14,7 +14,7 @@ import android.widget.TextView;
 import learn.numbers.all.major.languages.clone.R;
 
 
-public class AboutFragment extends BaseFragment{
+public class AboutFragment extends BaseFragment {
 
 
     public AboutFragment() {
@@ -36,7 +36,7 @@ public class AboutFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         View view =  inflater.inflate(R.layout.fragment_about, container, false);
+        View view = inflater.inflate(R.layout.fragment_about, container, false);
 
         view.findViewById(R.id.settingsShare_cl).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,14 +61,15 @@ public class AboutFragment extends BaseFragment{
         view.findViewById(R.id.settingsMore_cl).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/developer?id=Five+D+Technologies")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=FreeBirdis")));
             }
         });
 
+
         return view;
     }
-    public void dialog()
-    {
+
+    public void dialog() {
         View view = getLayoutInflater().inflate(R.layout.about_dialog_layout, null, false);
         TextView aboutUsCloseApp_tv = view.findViewById(R.id.aboutUsCloseApp_tv);
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -98,10 +99,12 @@ public class AboutFragment extends BaseFragment{
         }
 
     }
-    public void rateUs(){
+
+    public void rateUs() {
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + new PackageInfo().packageName)));
     }
-    public void shareUs(){
+
+    public void shareUs() {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT,
@@ -109,4 +112,6 @@ public class AboutFragment extends BaseFragment{
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }
+
+
 }

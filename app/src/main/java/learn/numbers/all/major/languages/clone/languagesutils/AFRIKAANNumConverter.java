@@ -8,7 +8,7 @@ import learn.numbers.all.major.languages.clone.interfaces.Language;
 
 public class AFRIKAANNumConverter implements Language {
 
-    public String[] sNum = new String[]{"nul","hundred","thousand","miljoen","miljard","biljoen"};
+    public String[] sNum = new String[]{"nul","hundred","duisend","miljoen","miljard","biljoen"};
     public final String[] tensNames = {
             "", " ten", " twintig", " dertig", " veertig", " fifetig", " sestig", " sewentig", " tagtig",
             " neëntig"
@@ -17,7 +17,7 @@ public class AFRIKAANNumConverter implements Language {
 
     public final String[] numNames = {
             "",
-            " een", " twee", " drie", " vier", " fife", " ses", " sewe", " agt", " nege", " tien",
+            " een", " twee", " drie", " vier", " fife", " ses", " sewe", " oft", " nege", " tien",
             " elf", " twaalf", " dertien", " veertien", " fifetien", " sestien", " sewentien",
             " agtien", " negentien"
     };
@@ -33,7 +33,6 @@ public class AFRIKAANNumConverter implements Language {
         else {
             soFar = numNames[number % 10];
             number /= 10;
-
             soFar = tensNames[number % 10] + soFar;
             number /= 10;
         }
