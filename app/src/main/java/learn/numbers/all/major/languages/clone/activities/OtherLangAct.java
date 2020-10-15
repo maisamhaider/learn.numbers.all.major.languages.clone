@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +16,7 @@ import learn.numbers.all.major.languages.clone.annotations.MyAnno;
 import learn.numbers.all.major.languages.clone.models.OtherNumbersModel;
 
 
-public class OtherLangAct extends AppCompatActivity {
+public class OtherLangAct extends BaseAct {
 
     String[] arabicEngPronounce;
     String[] persianEngPronounce;
@@ -35,7 +34,7 @@ public class OtherLangAct extends AppCompatActivity {
         setContentView(R.layout.activity_other_languages);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initArrays();
-
+        loadingDialog();
         RecyclerView other_language_rv = findViewById(R.id.extra_language_rv);
         TextView textView6 = findViewById(R.id.textView6);
         ArrayList<OtherNumbersModel> list = new ArrayList<>();

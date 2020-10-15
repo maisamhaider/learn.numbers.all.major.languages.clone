@@ -240,7 +240,7 @@ public class BaseAct extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (showDialog != null) {
+        if (showDialog != null && showDialog.isShowing()) {
             showDialog.dismiss();
         }
         if (tts != null) {

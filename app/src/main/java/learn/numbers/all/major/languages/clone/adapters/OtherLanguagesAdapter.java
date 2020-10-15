@@ -1,9 +1,6 @@
 package learn.numbers.all.major.languages.clone.adapters;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,8 +42,7 @@ public class OtherLanguagesAdapter extends RecyclerView.Adapter<OtherLanguagesAd
 
         tts.setLanguage(Locale.US);
         tts.setSpeechRate(1f);
-        loadingDialog();
-    }
+     }
 
     @NonNull
     @Override
@@ -98,21 +94,7 @@ public class OtherLanguagesAdapter extends RecyclerView.Adapter<OtherLanguagesAd
         return 101;
     }
 
-    public void loadingDialog() {
-        try {
-            final ProgressDialog showDialog = ProgressDialog.show(context,
-                    context.getString(R.string.app_name), "Please wait",
-                    true);
-            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    showDialog.dismiss();
-                }
-            }, 2000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
     class NumbsHolder extends RecyclerView.ViewHolder {
         TextView num_tv1, num_tv2, numWord_tv, numPronounce_tv;
         ConstraintLayout hNum_cl;

@@ -24,7 +24,7 @@ public class LanguageNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language_name);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        intitAdapter(this, new TextChangedInterface() {
+        initAdapter(this, new TextChangedInterface() {
             @Override
             public boolean changed(String val) {
                  return false;
@@ -32,7 +32,7 @@ public class LanguageNameActivity extends AppCompatActivity {
         });
     }
 
-    public void intitAdapter(Context context, TextChangedInterface textChanged) {
+    public void initAdapter(Context context, TextChangedInterface textChanged) {
         ArrayList<String> languages = new ArrayList<>();
         languages.add(MyAnno.Afrikaan);
         languages.add(MyAnno.Chinese);
